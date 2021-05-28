@@ -25,7 +25,7 @@ class StatusSVG extends PureComponent {
     }
 }
 // settings form
-const  Settings = ( { ...props, handleSettingsUpdate, handleSettingsValue } ) => 
+const  Settings = ( { handleSettingsUpdate, handleSettingsValue, ...props } ) => 
     <form className="settings">
         {["viewID","googleMapAPI","clientID","property"].map(item => 
             <Fragment key={item}>
@@ -57,11 +57,11 @@ class App extends Component {
         // refer to my Medium article for instructions
         // on how to get all these bits.
         keys : {
-            viewID : 'look in Google Analytics',
-            googleMapAPI: 'api key https://console.cloud.google.com/apis',
-            clientID : 'OAuth 2.0 client ID https://console.cloud.google.com/apis',
+            viewID : process.env.VIEWID,
+            googleMapAPI: process.env.MAPAPI,
+            clientID : process.env.CLIENTID,
             scope: 'https://www.googleapis.com/auth/analytics',
-            property: 'your-domain.com'
+            property: process.env.PROPERTY
         },
         polling : {
             interval : 10 //seconds
