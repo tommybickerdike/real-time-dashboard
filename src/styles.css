@@ -252,6 +252,8 @@ main {
     .map--wrapper * .marker span {
       font-size: 11px;
       font-weight: 400; }
+      .map--wrapper * .marker span.hidden {
+        display: none; }
     .map--wrapper * .marker:after {
       content: "";
       position: absolute;

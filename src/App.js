@@ -6,7 +6,7 @@ import './styles.css';
 
 // google map marker
 const Marker = ({ text }) => 
-    <div className="marker"><span>{text}</span></div>;
+    <div className="marker"><span className="hidden">{text}</span></div>;
 
 // svg polling timer
 class StatusSVG extends PureComponent {
@@ -112,7 +112,6 @@ class App extends Component {
     }
     fetchData = () => {
         let _authResp = googleGetAuthResponse();
-        console.log("Obtenir les données!")
         fetch(this.state.apiURL + this.state.viewID + this.state.apiOptions + "&access_token=" + _authResp.accessToken)
             .then(response => response.json())
             .then(result => {
@@ -279,7 +278,7 @@ class App extends Component {
                         //defaultCenter={_center}
                         defaultZoom={this.state.zoom}
                         center={_center}
-                        zoom={2}
+                        zoom={1}
                     >
                     {_plot && _plot.map( (plot, index) => {
                         let pt = plot[0].split(", ");
